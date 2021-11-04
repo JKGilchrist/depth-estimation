@@ -1,6 +1,6 @@
-# image-processing
+# Depth-estimation
 
-This module generates depth maps for shape-blocked-out images
+This module generates estimated depth maps for stereo pairs of featureless regions
 
 
 ## Install

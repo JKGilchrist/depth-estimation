@@ -10,38 +10,13 @@ if __name__ == "__main__":
     if not os.path.isdir("saves"):
         os.mkdir("saves")
 
+    #Args
     num_args = len(sys.argv)
-
-    if num_args >= 2:
-        img_type = sys.argv[1]
-
-    else:
-        img_types = os.listdir('assets')
-        r = random.randint(0, len(img_types) - 1)
-        img_type = img_types[r]
-
-    if num_args >= 3:
-        img_index = int(sys.argv[2])
-
-    else:
-        img_index = random.randint(0, len(os.listdir('assets/' + img_type + "/cameraLeft/")) - 1)
-    
-    if num_args >= 4:
-        mod_img_ind = int(sys.argv[3])
-    else:
-        mod_img_ind = random.randint(0, 1)
-
-    if num_args >= 5:
-
-        to_save = str(sys.argv[4]) == "True"
-    else:
-        to_save = False
-    
-    if num_args >= 6:
-        display = str(sys.argv[5]) == "True"
-    else:
-        display = True
-
+    img_type = sys.argv[1] if num_args >= 2 else os.listdir('assets')[random.randint(0, len(os.listdir('assets')) - 1)]
+    img_index = int(sys.argv[2]) if num_args >= 3 else random.randint(0, len(os.listdir('assets/' + img_type + "/cameraLeft/")) - 1)
+    mod_img_ind = int(sys.argv[3]) if num_args >= 5 else random.randint(0, 1)
+    to_save = str(sys.argv[4]) == "True" if num_args >= 5 else False
+    display = str(sys.argv[5]) == "True" if num_args >= 6 else True
 
 
     if to_save and not os.path.isdir("saves/generated"):

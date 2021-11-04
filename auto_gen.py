@@ -21,7 +21,6 @@ if __name__ == "__main__":
 
     for y in lst:
         lefts = os.listdir('assets/' + y + '/cameraLeft')
-        centers = os.listdir('assets/' + y + '/cameraCenter')
         rights = os.listdir('assets/' + y + '/cameraRight')
 
         for left, center, right in zip(lefts, centers, rights):
@@ -35,9 +34,8 @@ if __name__ == "__main__":
             f = open("saves/logs/" + left[:-3] + "txt", 'w')
             sys.stdout = f
             left = y + '/cameraLeft/' + left
-            center = y + '/cameraCenter/' + center
             right = y + '/cameraRight/' + right
-            coll = Collection( left, center, right)
+            coll = Collection( left, right)
             mod_img = [left, center, right][mod_img_ind]
             coll.get_depth_img(mod_img, True, False)
 

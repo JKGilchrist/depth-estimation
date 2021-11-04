@@ -1,4 +1,5 @@
 assets/*
 misc
 __pycache__
-saves/*
+saves/logs/*
+*.img
